@@ -1,50 +1,44 @@
-# Welcome to your Expo app 👋
+Scentinel — Frontend (React Native)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Scentinel is a mobile app built with React Native + Expo designed to help fragrance enthusiasts manage and rotate their perfume collection effectively. It recommends scents based on usage, weather, and occasion — making sure every fragrance in your collection gets attention.
 
-## Get started
+Features: - View full perfume collection with scent profile details
 
-1. Install dependencies
+- Plan weekly rotation to avoid overusing favorite scents
+- Add logs for usage with notes, compliments, and events
+- Smart suggestions based on weather, time, and event location _(in progress)_
 
-   ```bash
-   npm install
-   ```
+Tech Stack
 
-2. Start the app
+- React Native + Expo Router — mobile frontend framework
+- Axios\*\* — for API communication with backend
+- JavaScript / JSX
+- Connected to a custom Node.js + PostgreSQL backend
 
-   ```bash
-   npx expo start
-   ```
+Getting Started
 
-In the output, you'll find options to open the app in a
+1. Install Dependencies (npm install)
+2. Configure API Base URL
+   Update constants/config.js with your backend’s local IP (or deployed URL): export const BASE_URL = 'http://<your-local-ip>:3000';
+   Replace <your-local-ip> with your machine’s IPv4 (e.g., 192.168.100.9)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Run the App: npx expo start
+Scan the QR code using Expo Go on your iPhone.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+scentinel-frontend/
+├── app/ # Expo Router pages
+├── components/ # Reusable UI components
+├── constants/ # Config and constants (e.g., BASE_URL)
+├── services/ # API layer (Axios instance)
+├── styles/ # Global style definitions
+├── assets/ # Static images or icons
+├── App.js # Entry point (default ignored by Expo Router)
 
-## Get a fresh project
+Status
+Currently in development
+Weekly planner & weather API integration coming soon
 
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Author
+John Ross M. Rivera
+Aspiring Backend Developer | BSIT Graduate
+Bulacan, Philippines
