@@ -1,40 +1,63 @@
-import { StyleSheet, Text, View } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const PerfumeCard = ({ perfume }) => {
+  const router = useRouter();
+
   return (
     <View style={styles.card}>
-      <Text style={styles.title}>{perfume.name}</Text>
-      <Text style={styles.brand}>{perfume.brand}</Text>
-      <Text style={styles.info}>Type: {perfume.type}</Text>
-      <Text style={styles.info}>Season: {perfume.season}</Text>
-      <Text style={styles.info}>Intensity: {perfume.intensity}</Text>
+      <TouchableOpacity
+        style={styles.details}
+        onPress={() =>
+          router.push({ pathname: "/perfume/[id]", params: { id: perfume.id } })
+        }
+      >
+        <Text style={styles.name}>{perfume.name}</Text>
+        <Text style={styles.info}>
+          {perfume.brand} • {perfume.type}
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.icon}
+        onPress={() =>
+          router.push({ pathname: "/edit", params: { id: perfume.id } })
+        }
+      >
+        <FontAwesome name="edit" size={20} color="#007AFF" />
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#fff",
-    marginVertical: 8,
     padding: 16,
-    borderRadius: 12,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    marginBottom: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     shadowColor: "#000",
     shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 3,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
   },
-  title: {
+  details: {
+    flex: 1,
+  },
+  name: {
+    fontWeight: "bold",
     fontSize: 18,
-    fontWeight: "600",
-  },
-  brand: {
-    fontSize: 14,
-    color: "#444",
-    marginBottom: 4,
   },
   info: {
-    fontSize: 12,
     color: "#666",
+  },
+  icon: {
+    marginLeft: 10,
+    padding: 8,
   },
 });
 
